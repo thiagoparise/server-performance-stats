@@ -32,3 +32,11 @@ echo 'DISK'
 echo "SIZE: $(echo "scale=2; $diskSize/1024/1024" | bc)GB   |   FREE: $(echo "scale=2; $diskAvail/1024/1024" | bc)GB  -  $diskAvailPercent %   |   USED: $(echo "scale=2; $diskUsed/1024/1024" | bc)GB  -  $diskUsedPercent %"
 
 echo "----------------------------------------------------------------"
+
+echo 'TOP 5 PROCESS BY CPU USAGE'
+ps -e -o pid,comm,%cpu --sort=-%cpu | head -n 6
+
+echo "----------------------------------------------------------------"
+
+echo 'TOP % PROCESS BY MEMORY USAGE'
+ps -e -o pid,comm,%mem --sort=-%mem | head -n 6
